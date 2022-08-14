@@ -1,11 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const ChatScreen = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>ChatScreen</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 
