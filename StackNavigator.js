@@ -3,12 +3,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import HomeScreen from './Screens/home/HomeScreen'
 import ChatScreen from './Screens/chat/ChatScreen'
 import LoginScreen from './Screens/login/LoginScreen'
+import useAuth from './hooks/useAuth'
 
 const Stack = createNativeStackNavigator()
 
 const StackNavigator = () => {
   // now it's similar to Route system in react js
-  const user = true
+  const { user } = useAuth()
+  console.log('user : ', user)
+
   return (
     <Stack.Navigator>
       {user ? (
