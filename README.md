@@ -151,6 +151,7 @@ export default function useAuth() {
 * * * download `Google-Services.json` its same as `GoogleService-info.plist`
 * * * after all the steps `add fingerprint` in the android project
 * in VS code run this command `expo fetch:android:hashes` if it did not worked then `logged in to expo` and then make a build for android `expo build:android` and then name your project as `host.exp.exponent`  
+* `expo credentials:manager`
 * once you get the hashes copy the `SHA-256: xxxxxxxxxxxxxxxxxxxxxxxxxx` and paste it in the `add fingerprint` section in the android project.
 
 * at this point we should have two apps in the `project settings`.
