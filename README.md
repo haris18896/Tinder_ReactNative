@@ -220,5 +220,5 @@ and after this log in to expo
 expo login
 ```
 
-and our app will be published to expo, which then we can use offline too.
+and our app will be published to expo.
 

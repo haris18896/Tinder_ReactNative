@@ -4,10 +4,9 @@ import * as Google from 'expo-auth-session/providers/google'
 const AuthContext = createContext({})
 
 export const AuthProvider = ({ children }) => {
-
-    const signInWithGoogle = async () => {
-        await Google.logInAsync()
-    }
+  const signInWithGoogle = async () => {
+    await Google.logInAsync()
+  }
 
   return (
     <AuthContext.Provider
