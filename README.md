@@ -206,7 +206,7 @@ export default function useAuth() {
 }
 ```
 
-# Publishing out app to expo
+# Publishing app to expo
 
 ```
 expo install expo-updates
