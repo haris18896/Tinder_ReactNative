@@ -135,6 +135,8 @@ export default function useAuth() {
 ```
 
 ## Setting up Firebase
+* first make a project on google cloud, with the same we can make a firebase project, so that our credentials will be added directly to the GCP.
+
 * Go to console --> Add Project --> project Name e.g(tinder-c1) --> disable google analytics --> project settings --> add two projects one for ios and other for android
 
 * * ios --> `apple bundle id == host.exp.exponent` (this allows expo to get through the google sort of safety restrictions when you try to login through google, if you don't do this then on logging in it will say `redirect uri error` on deployment we will be changing this bundle id),  `App NickName(optional) === 'tinder'`
@@ -147,8 +149,17 @@ export default function useAuth() {
 * * click on add app
 * * * and then repeat the above steps for android too.
 * * * download `Google-Services.json` its same as `GoogleService-info.plist`
+* * * after all the steps `add fingerprint` in the android project
+* in VS code run this command `expo fetch:android:hashes` if it did not worked then `logged in to expo` and then make a build for android `expo build:android` and then name your project as `host.exp.exponent`  
+* once you get the hashes copy the `SHA-256: xxxxxxxxxxxxxxxxxxxxxxxxxx` and paste it in the `add fingerprint` section in the android project.
 
 * at this point we should have two apps in the `project settings`.
+
+```
+npm install -g eas-cli
+eas build -p android
+```
+* if any problem arise then you will have to install `JAVA` on to your machine
   
 ## Adding Firebase to the App
 
@@ -194,4 +205,20 @@ export default function useAuth() {
   return useContext(AuthContext)
 }
 ```
+
+# Publishing out app to expo
+
+```
+expo install expo-updates
+npm install -g eas-cli
+eas build -p android
+```
+
+and after this log in to expo
+
+```
+expo login
+```
+
+and our app will be published to expo, which then we can use offline too.
 
