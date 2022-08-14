@@ -488,7 +488,16 @@ If you need to access params of the parent screen from a child screen, you can u
 ### Navigation actions are handled by current navigator and bubble up if couldn't be handled
 For example, if you're calling `navigation.goBack()` in a nested screen, it'll only go back in the parent navigator if you're already on the first screen of the navigator. Other actions such as navigate work similarly, i.e. navigation will happen in the nested navigator and if the nested navigator couldn't handle it, then the parent navigator will try to handle it. In the above example, when calling `navigate('Messages')`, inside Feed screen, the nested tab navigator will handle it, but if you call `navigate('Settings')`, the parent stack navigator will handle it.
 
-### 
+### Navigator specific methods are available in the navigators nested inside
+For example, if you have a stack inside a drawer navigator, the drawer's openDrawer, closeDrawer, toggleDrawer methods etc. will also be available on the navigation prop in the screen's inside the stack navigator. But say you have a stack navigator as the parent of the drawer, then the screens inside the stack navigator won't have access to these methods, because they aren't nested inside the drawer.
+
+Similarly, if you have a tab navigator inside stack navigator, the screens in the tab navigator will get the push and replace methods for stack in their navigation prop.
+
+If you need to dispatch actions to the nested child navigators from a parent, you can use [navigation.dispatch](https://reactnavigation.org/docs/navigation-prop#dispatch)
+
+```js
+navigation.dispatch(DrawerActions.toggleDrawer());
+```
 
 ### 
 
