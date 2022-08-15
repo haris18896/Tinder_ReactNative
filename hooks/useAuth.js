@@ -13,9 +13,11 @@ const config = {
 }
 
 export const AuthProvider = ({ children }) => {
+  const [GoogleAuthRequest] = Google.useAuthRequest(config)
+  console.log('GoogleAuthRequest', GoogleAuthRequest)
   const signInWithGoogle = async () => {
-    await Google.useAuthRequest(config).then(async logInResult => {
-      if (logInResult.type === 'success') {
+    GoogleAuthRequest.then(async logInResult => {
+      if (logInResult.responseType === 'token') {
         console.log('logInResult', logInResult)
       }
     })

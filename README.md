@@ -1,8 +1,6 @@
 # Tinder Clone : Google Authentication
 
-```
-npm i expo-google-app-auth
-```
+Authentication docs for [auth-session](https://docs.expo.dev/versions/v43.0.0/sdk/auth-session/)
 
 we could not get the hashes because 
 ```
@@ -36,8 +34,10 @@ const config = {
 }
 
 export const AuthProvider = ({ children }) => {
+  const login = Google.useAuthRequest(config)
+  console.log('login', login)
   const signInWithGoogle = async () => {
-    await Google.useAuthRequest(config).then(async logInResult => {
+    login.GoogleAuthRequest.then(async logInResult => {
       if (logInResult.type === 'success') {
         console.log('logInResult', logInResult)
       }

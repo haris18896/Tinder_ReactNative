@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator()
 const StackNavigator = () => {
   // now it's similar to Route system in react js
   const { user } = useAuth()
-  console.log('user : ', user)
+  // console.log('user : ', user)
 
   return (
     <Stack.Navigator>
